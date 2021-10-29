@@ -72,7 +72,7 @@ class VAEBase(keras.Model):
 
 
 class LSTMVAE(VAEBase):
-    def __init__(self, latent_dim=8, encoder_hiddens=[64, 64, 64], decoder_hiddens=[64, 64, 64], series_len=None):
+    def __init__(self, latent_dim=8, encoder_hiddens=[256, 128, 64], decoder_hiddens=[64, 128, 256], series_len=None):
         self.latent_dim = latent_dim
         self.encoder_hiddens = encoder_hiddens
         self.decoder_hiddens = decoder_hiddens
