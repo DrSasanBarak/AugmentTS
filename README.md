@@ -28,7 +28,7 @@ The above code uses the default settings for the LSTM-VAE model. You can customi
 augmenter.fit(data, epochs=64)
 ```
 #### Generate new time series!
-Two strategy for sampling have been implemented.  
+Two strategies for sampling have been implemented.  
 You can simply sample from the latent space. Here `n` is the number of generated series
 ```python
 augmenter.sample(n=1000)
