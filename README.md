@@ -58,3 +58,5 @@ Supported models for time series forecasting are as follows:
 The list of the current contributors:
 - Sasan Barak
 - Amirabbas Asadi
+- Ehsan Mirafzali
+- Mohammad Joshaghani
