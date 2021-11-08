@@ -1,7 +1,7 @@
 import pathlib
 from setuptools import find_packages, setup
 
-# The directory containing this file
+# The directory containing the file
 HERE = pathlib.Path(__file__).parent
 
 # The text of the README file
