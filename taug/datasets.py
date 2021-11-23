@@ -21,7 +21,7 @@ class ETSDataset(Dataset):
     ETS dataset
     Sampling synthetic data from the ETS model
     """
-    def __init__(self, ets_families, *args, **kwargs):
+    def __init__(self, ets_families, length=100, freq=7, positive=True):
         """
         ets_families: list of ETS families to sample from and number of samples
         """
@@ -33,7 +33,23 @@ class ETSDataset(Dataset):
         for family, n_series in ets_families.items():
             for i in range(n_series):
                 error, trend, seasonality = family.replace(' ', '').split(',')
-                series = self.generate_series(error=error, trend=trend, seasonality=seasonality, **kwargs)
+                if trend == 'Ad':
+                    phi = np.random.uniform(low=0.95, high=1.0)
+                else:
+                    phi = 1.0
+
+                series = self.generate_series(length=length, alpha=np.random.uniform(),
+                                beta=np.random.uniform(),
+                                phi=phi,
+                                gamma=np.random.uniform(),
+                                l0 = np.random.normal(),
+                                b0 = np.random.normal(),
+                                seasonality_freq=freq,
+                                s_init=np.random.normal(size=(freq)),
+                                error=error, trend=trend, seasonality=seasonality)
+                
+                if positive:
+                    series += max(0, -series.min())
                 self.series.append(series)
 
     def load(self, return_family=False):
