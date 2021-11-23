@@ -1,8 +1,12 @@
 from taug.forecasters.deep import LSTMCNNForecaster
+from taug.utils import prepare_ts
 import numpy as np
 
-X = np.random.normal(size=(100, 8, 10))
-y = np.random.normal(size=(100, 4, 10))
+ts = np.random.rand(100, 10)
+X, y = prepare_ts(ts, 8, 4)
+
+print(X.shape)
+print(y.shape)
 
 model = LSTMCNNForecaster(window_size=8, steps_ahead=4, n_series=10)
 model.fit(X, y, epochs=10)
