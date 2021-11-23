@@ -1,4 +1,4 @@
-# TAug :: Time Series Data Augmentation using Deep Generative Models
+# AugmentTS :: Time Series Data Augmentation using Deep Generative Models
 **Note!!!** The package is under development so be careful for using in production!
 ## Features
 - Time Series Data Augmentation using Deep Generative Models
@@ -8,14 +8,14 @@
 ## Installation
 You can install the last stable version using pip
 ```
-pip install taug
+pip install augmentts
 ```
 ## How to Use
 ### Augmentation Guide
 #### Create an augmenter
 ```python
-from taug.augmenters.vae import LSTMVAE
-from taug.augmenters.vae import VAEAugmenter
+from augmentts.augmenters.vae import LSTMVAE
+from augmentts.augmenters.vae import VAEAugmenter
 
 # create a variational autoencoder
 vae = LSTMVAE(series_len=100)

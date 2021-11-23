@@ -1,4 +1,4 @@
-from taug.datasets import ETSDataset
+from augmentts.datasets import ETSDataset
 
 ets = ETSDataset(ets_families={
     'A,A,N' : 100,

@@ -1,5 +1,5 @@
-from taug.forecasters.deep import LSTMCNNForecaster
-from taug.utils import prepare_ts
+from augmentts.forecasters.deep import LSTMCNNForecaster
+from augmentts.utils import prepare_ts
 import numpy as np
 
 ts = np.random.rand(100, 10)

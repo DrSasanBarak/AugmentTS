@@ -1,4 +1,4 @@
-from taug.augmenters.vae import LSTMVAE, VAEAugmenter
+from augmentts.augmenters.vae import LSTMVAE, VAEAugmenter
 import numpy as np
 
 data = np.random.normal(size=(40, 1, 100))
