@@ -115,7 +115,7 @@ class VAEAugmenter():
         self.fit = self.vae.fit
         self.latent_dim = vae.latent_dim
 
-    def sample(self, n, X=np.array([]), sigma=0.1):
+    def sample(self, n=1, X=np.array([]), sigma=0.1):
         """
         Generating new time series
 
