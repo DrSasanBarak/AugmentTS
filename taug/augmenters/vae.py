@@ -115,28 +115,28 @@ class VAEAugmenter():
         self.fit = self.vae.fit
         self.latent_dim = vae.latent_dim
 
-    def sample(self, n, X=None, sigma=0.1):
+    def sample(self, n, X=np.array([]), sigma=0.1):
         """
         Generating new time series
 
         Parameters
         ----------
-        n : the number of generated series
+        n : the number of generated series, ignored when X is not empty
         X : if it set to None then the samples will be from the whole latent space
             if it is a dataset then the sample will be simillar to the provided data
         sigma : the standard deviation of noise that affect the variety of generated samples
         """
-        if X:
+        if X.size > 0:
             # encode the data
-            z = self.vae.encoder(X)
+            z = self.vae.encoder(X)[2]
             # adding gaussian noise to the latent values
-            noise = sigma * tf.keras.backend.random_normal(shape=(n, self.latent_dim))
+            noise = sigma * tf.keras.backend.random_normal(shape=(X.shape[0], self.latent_dim))
             z += noise
             # reconstruct the time series
             return self.vae.decoder(z)
         else:
             # generate random points in the latent space
-            z = tf.keras.backend.random_normal(shape=(n, self.latent_dim))
+            z = sigma * tf.keras.backend.random_normal(shape=(n, self.latent_dim))
             # decode the latent values
             return self.vae.decoder(z)
 
@@ -149,4 +149,4 @@ class VAEAugmenter():
         X : dataset
         """
         # encode the data
-        return self.vae.encoder(X)
+        return self.vae.encoder(X)[2]
