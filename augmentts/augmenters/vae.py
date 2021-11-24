@@ -16,7 +16,7 @@ import tensorflow_addons as tfa
 
 
 class Sampling(layers.Layer):
-    """Reparameterization trick requierd for training VAE
+    """Reparameterization trick requierd for training VAE.
        Currently supports only normal distribution, and it will be improved
     """
 
