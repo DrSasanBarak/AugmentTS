@@ -14,7 +14,7 @@ setup(
     description="Time Series Forecasting and Data Augmentation using Deep Generative Models ",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/Drsasanbarak/taug",
+    url="https://github.com/Drsasanbarak/augmentts",
     author="Sasan Barak",
     author_email="s.barak@soton.ac.uk",
     packages=find_packages(exclude=("tests",)),
