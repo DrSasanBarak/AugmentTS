@@ -68,7 +68,7 @@ class ETSDataset(Dataset):
     def generate_series(self, error='A', trend='A', seasonality='A', length=100, alpha=0.6, beta=0.6, gamma=0.5, phi=1.0,
                l0=0.2, b0=0.1, error_mu=0.0, error_sigma=0.01, seasonality_freq=7, s_init=np.random.normal(size=7)):
         """
-        samples a time series from ETS model
+        samples a time series from ETS class
         input parameters:
         - length: length of the time series
         - error : type of the error compoenent
