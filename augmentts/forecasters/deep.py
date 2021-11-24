@@ -17,7 +17,7 @@ import tensorflow_addons as tfa
 
 class DeepForecaster():
     """
-    Base class for deep forecasters
+    Base class for deep forecasting models
     """
     def __init__(self, window_size, steps_ahead, loss='mae', optimizer='adam', metrics=None):
         
