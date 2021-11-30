@@ -165,9 +165,8 @@ class NN5Dataset(Dataset):
         self.path = os.path.join(os.path.dirname(__file__), 'datasets/NN5_DataSet.csv')
         # reading NN5 dataset
         self.data = np.genfromtxt(self.path, delimiter=',', skip_header=1)
-
     def load(self):
         """
         Load dataset
         """
-        return self.data 
+        return np.expand_dims(self.data, 1).transpose(2, 1, 0)
