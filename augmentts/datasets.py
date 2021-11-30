@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import os
 
 class Dataset():
     """
@@ -152,3 +153,21 @@ class ETSDataset(Dataset):
             s.append(st)
         
         return np.array(y)
+
+class NN5Dataset(Dataset):
+    """
+    NN5 dataset
+    A Dataset class for loading NN5 time series
+    """
+    def __init__(self):
+        super().__init__()
+        # NN5 path
+        self.path = os.path.join(os.path.dirname(__file__), 'datasets/NN5_DataSet.csv')
+        # reading NN5 dataset
+        self.data = np.genfromtxt(self.path, delimiter=',', skip_header=1)
+
+    def load(self):
+        """
+        Load dataset
+        """
+        return self.data 
