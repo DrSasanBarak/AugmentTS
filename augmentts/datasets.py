@@ -165,6 +165,9 @@ class NN5Dataset(Dataset):
         self.path = os.path.join(os.path.dirname(__file__), 'datasets/NN5_DataSet.csv')
         # reading NN5 dataset
         self.data = np.genfromtxt(self.path, delimiter=',', skip_header=1)
+        # replace NaN with 0
+        self.data[np.isnan(self.data)] = 0
+        
     def load(self):
         """
         Load dataset
