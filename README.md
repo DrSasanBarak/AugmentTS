@@ -137,6 +137,34 @@ sb.scatterplot(data=augmented_df, x='z1', y='z2', hue='family')
 ```
 Here is the result of augmentation!  
 ![image](https://user-images.githubusercontent.com/8543469/143130434-57e70b76-c242-4f8d-9a0e-44659d83d3e1.png)
+### Using VAE for Representation Learning
+VAE can be used to extract a rich representation of data. Unlike a simple AutoEncoder The features extracted by VAE are more noise-invariant and distangled. To see an example we load NN5 dataset which is included in the package:
+```python
+from augmentts.datasets import NN5Dataset
+
+nn5 = NN5Dataset()
+original_data = nn5.load()
+```
+Next we create a VAE for augmentation. Since we are going to visualize the extracted features, we set latent dimension of VAE to 2.
+```python
+from augmentts.augmenters.vae import LSTMVAE, VAEAugmenter
+
+vae = LSTMVAE(series_len=original_data.shape[2], latent_dim=2)
+augmenter = VAEAugmenter(vae)
+augmenter.fit(original_data, epochs=100, batch_size=32)
+```
+To access the latent features you can use `latent` method of `VAEAugmenter`:
+```python
+latent = augmenter.latent(original_data).numpy()
+```
+Finally, you can visualize the extracted features:
+```python
+import matplotlib.pyplot as plt
+
+plt.title('Latent Representation')
+plt.scatter(latent[:, 0], latent[:, 1])
+```
+![image](https://user-images.githubusercontent.com/8543469/145485523-be6a1b1b-a75b-4901-941f-5acf2c2ca1be.png)  
 
 
 ## Contributors
