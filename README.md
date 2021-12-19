@@ -1,6 +1,6 @@
 # AugmentTS :: Time Series Data Augmentation using Deep Generative Models
 **Note!!!** The package is under development so be careful for using in production!
-## Features
+## Basic Features
 - Time Series Data Augmentation using Deep Generative Models
 - Visualizing the Latent Space of Generative Models
 - Time Series Forecasting using Deep Neural Networks
