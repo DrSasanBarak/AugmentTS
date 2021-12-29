@@ -70,7 +70,6 @@ class VAEBase(keras.Model):
             "kl_loss": self.kl_loss_tracker.result(),
         }
 
-
 class LSTMVAE(VAEBase):
     def __init__(self, latent_dim=8, encoder_hiddens=[256, 128, 64], decoder_hiddens=[64, 128, 256], series_len=None):
         self.latent_dim = latent_dim
