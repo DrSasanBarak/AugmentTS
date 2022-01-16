@@ -67,7 +67,7 @@ model.predict(X)
 Supported models for augmentation currently are as follows:
 |  Model  |           Type          |   Supported Time Series  |                                Description                                |
 |:-------:|:-----------------------:|:------------------------:|:-------------------------------------------------------------------------:|
-| LSTMVAE | Variational Autoencoder | Univariate, fixed length | A Variational Autoencoder with stacked LSTM layers for encoder and decoder based on the paper [paper citation] |
+| LSTMVAE | Variational Autoencoder | Univariate, fixed length | A Variational Autoencoder with stacked LSTM layers for encoder and decoder based on the paper [https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4009937] |
 
 ## Supported Forecasters
 Currently an LSTM-CNN forecaster is implemented. You can either customize it or just implement your own architecture.
